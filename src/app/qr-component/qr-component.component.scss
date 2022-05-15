@@ -1,0 +1,31 @@
+.form {
+  .url-field {
+    width: 95vw;
+    margin: auto 20px;
+
+    .url-suffix {
+      mat-icon {
+        font-size: 110%;
+      }
+      .invalid-url {
+        color: red;
+      }
+      .valid-url {
+        color: green;
+      }
+    }
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  .qr-code {
+    width: 300px;
+  }
+
+  .shortened-field {
+    font-size: 20px;
+  }
+}

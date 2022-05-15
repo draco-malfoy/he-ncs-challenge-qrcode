@@ -1,0 +1,25 @@
+<div class="form" [formGroup]="urlForm">
+    <mat-form-field class="url-field" appearance="standard">
+        <mat-label>Enter a URL</mat-label>
+        <input type="url" matInput placeholder="ex. https://google.com" formControlName="url">
+        <span class="url-suffix" matSuffix *ngIf="urlForm.touched && urlForm.dirty">
+            <mat-icon class="valid-url" *ngIf="formStatus">check_circle</mat-icon>
+            <mat-icon class="invalid-url" *ngIf="!formStatus">error</mat-icon>
+        </span>
+        <mat-error>Please enter a valid URL</mat-error>
+    </mat-form-field>
+</div>
+
+<div class="row" *ngIf="formStatus">
+    <div class="qr-code" #qrCode></div>
+    <div class="metadata">
+        <mat-form-field class="shortened-field" appearance="standard">
+            <mat-label>Shortened URL</mat-label>
+            <input type="url" [value]="shortURL" matInput>
+            <button matSuffix mat-icon-button color="primary" (click)="copyShortURL()">
+                <mat-icon [matTooltip]="isUrlCopied ? 'Copied!' : ''" matTooltipPosition="above">content_copy</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+</div>
